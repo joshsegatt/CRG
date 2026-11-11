@@ -1,4 +1,5 @@
 import { getMessages } from "./i18n.mjs";
+import { business } from "./business.mjs";
 
 export const services = getMessages("fr").services;
 
@@ -52,5 +53,5 @@ export function createSummary(data, locale = "fr") {
 }
 
 export function createSmsLink(summary) {
-  return `sms:+33647742333?body=${encodeURIComponent(summary)}`;
+  return `sms:${business.phone}?body=${encodeURIComponent(summary)}`;
 }

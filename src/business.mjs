@@ -1,0 +1,20 @@
+export const business = {
+  name: "Création & Rénovation Gessienne",
+  alternateName: "Création et Rénovation Gessienne",
+  legalName: "CREATION & RENOVATION GESSIENNE",
+  phone: "+33611499153",
+  phoneDisplay: "06 11 49 91 53",
+  googleProfile: "https://share.google/0lOKBaNvSC9fL0QDS",
+  street: "896 rue de l’Oudar",
+  locality: "Gex",
+  postalCode: "01170",
+  region: "Ain",
+  country: "FR",
+  siren: "914288691",
+  areas: [
+    { name: "Pays de Gex", country: "FR" },
+    { name: "Genevois français", country: "FR" },
+    { name: "Genève", country: "CH" },
+    { name: "Veyrier", country: "CH" },
+  ],
+};

@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import { resolve } from "node:path";
 import { english } from "../src/translations.en.mjs";
+import { business } from "../src/business.mjs";
 
 const root = resolve("dist");
 async function htmlFiles(directory = "") {
@@ -32,6 +33,26 @@ let references = 0;
 for (const file of files) {
   const html = await readFile(resolve(root, file), "utf8");
   const locale = file.startsWith("en/") ? "en" : "fr";
+  if (!html.includes('name="robots"'))
+    throw new Error(`${file}: missing robots metadata`);
+  for (const match of html.matchAll(/href="tel:([^"]+)"/g)) {
+    if (match[1] !== business.phone)
+      throw new Error(`${file}: inconsistent telephone`);
+  }
+  const schema = JSON.parse(
+    html.match(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+    )?.[1] ?? "null",
+  );
+  if (!schema) throw new Error(`${file}: missing structured data`);
+  const company =
+    schema["@graph"]?.find((item) => item["@type"] === "GeneralContractor") ??
+    schema;
+  if (company.telephone !== business.phone)
+    throw new Error(`${file}: inconsistent structured telephone`);
+  const page = schema["@graph"]?.find((item) => item["@type"] === "WebPage");
+  if (page && page.inLanguage !== locale)
+    throw new Error(`${file}: inconsistent structured language`);
   for (const required of [
     `<html lang="${locale}">`,
     "<title>",

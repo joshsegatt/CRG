@@ -1,4 +1,8 @@
+import { regionalEnglish } from "./regions.mjs";
+import { additionalEnglish } from "./page-copy.mjs";
 export const english = {
+  ...regionalEnglish,
+  ...additionalEnglish,
   "Version française": "French version",
   "Ces images illustrent des matériaux, des volumes et des possibilités. Elles ne représentent pas des chantiers réalisés par Création & Rénovation Gessienne.":
     "These images illustrate materials, spaces and possibilities. They do not show projects completed by Création & Rénovation Gessienne.",
@@ -35,7 +39,7 @@ export const english = {
   "Création & Rénovation Gessienne — accueil":
     "Création & Rénovation Gessienne — home",
   "Navigation principale": "Main navigation",
-  "Appeler le 06 47 74 23 33": "Call 06 47 74 23 33",
+  "Appeler le 06 11 49 91 53": "Call 06 11 49 91 53",
   "Navigation de pied de page": "Footer navigation",
   "Le détail que l’on vit chaque jour.": "A detail you live with every day.",
   "Au sol ou au mur, le carrelage relie les matières, la lumière et les usages. Un choix à penser autant pour son aspect que pour son quotidien.":
@@ -213,8 +217,8 @@ export const english = {
   "Ouvrir dans SMS": "Open in messaging app",
   "Télécharger le résumé": "Download the summary",
   "Copier le texte": "Copy the text",
-  "L’ouverture des SMS nécessite une application compatible. Aucun message n’est envoyé automatiquement. Vous pouvez aussi appeler le 06 47 74 23 33.":
-    "Opening a text message requires a compatible app. No message is sent automatically. You can also call 06 47 74 23 33.",
+  "L’ouverture des SMS nécessite une application compatible. Aucun message n’est envoyé automatiquement. Vous pouvez aussi appeler le 06 11 49 91 53.":
+    "Opening a text message requires a compatible app. No message is sent automatically. You can also call 06 11 49 91 53.",
   "Modifier mon projet": "Edit my project",
   "Étapes du projet": "Project steps",
   "À discuter": "To discuss",
@@ -228,8 +232,8 @@ export const english = {
   "Le bouton de téléchargement crée un fichier texte sur votre appareil. Le bouton de copie place, à votre demande, le résumé dans votre presse-papiers. Ces actions ne transmettent pas le résumé à l’entreprise.":
     "The download button creates a text file on your device. At your request, the copy button places the summary on your clipboard. Neither action sends the summary to the company.",
   "Ouverture d’un SMS": "Opening a text message",
-  "Si vous choisissez « Ouvrir dans SMS », votre appareil transmet le texte à l’application de messagerie compatible que vous utilisez. Vous vérifiez le contenu et décidez vous-même de l’envoyer au 06 47 74 23 33. L’envoi dépend de votre forfait et de votre opérateur.":
-    "If you choose “Open in messaging app”, your device passes the text to a compatible messaging app. You check the contents and decide whether to send it to 06 47 74 23 33. Sending depends on your mobile plan and provider.",
+  "Si vous choisissez « Ouvrir dans SMS », votre appareil transmet le texte à l’application de messagerie compatible que vous utilisez. Vous vérifiez le contenu et décidez vous-même de l’envoyer au 06 11 49 91 53. L’envoi dépend de votre forfait et de votre opérateur.":
+    "If you choose “Open in messaging app”, your device passes the text to a compatible messaging app. You check the contents and decide whether to send it to 06 11 49 91 53. Sending depends on your mobile plan and provider.",
   "Cookies et mesure d’audience": "Cookies and analytics",
   "Cette version n’intègre aucun cookie publicitaire, traceur de mesure d’audience, carte embarquée ou police chargée depuis un service externe. Les images et les polices sont servies avec le site.":
     "This version does not include advertising cookies, analytics trackers, embedded maps or fonts loaded from an external service. Images and fonts are served with the website.",
@@ -292,8 +296,8 @@ export const english = {
     "Création & Rénovation Gessienne: a building company in Gex. Discover our expertise and let’s prepare your building project.",
   "Découvrez Création & Rénovation Gessienne, entreprise française de maçonnerie, plâtrerie, cloisons et carrelage implantée à Gex.":
     "Discover Création & Rénovation Gessienne, a French masonry, plastering, partitioning and tiling company based in Gex.",
-  "Contactez Création & Rénovation Gessienne au 06 47 74 23 33 à Gex ou préparez le résumé de vos travaux.":
-    "Contact Création & Rénovation Gessienne on 06 47 74 23 33 in Gex, or prepare a summary of your building project.",
+  "Contactez Création & Rénovation Gessienne au 06 11 49 91 53 à Gex ou préparez le résumé de vos travaux.":
+    "Contact Création & Rénovation Gessienne on 06 11 49 91 53 in Gex, or prepare a summary of your building project.",
   "Identification et informations de Création & Rénovation Gessienne, SIREN 914 288 691 à Gex.":
     "Company identification and information for Création & Rénovation Gessienne, SIREN 914 288 691, in Gex.",
   "Comment fonctionne le résumé de projet et quelles informations restent sur votre appareil.":

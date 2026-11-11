@@ -62,7 +62,7 @@ test("summary preserves French and input as plain text; SMS encodes it completel
   assert.match(summary, /Élodie/);
   assert.doesNotMatch(summary, /undefined/);
   const link = createSmsLink(summary);
-  assert.ok(link.startsWith("sms:+33647742333?body="));
+  assert.ok(link.startsWith("sms:+33611499153?body="));
   assert.equal(decodeURIComponent(link.split("?body=")[1]), summary);
 });
 test("no personal data is silently added to an empty brief", () => {

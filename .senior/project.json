@@ -8,12 +8,16 @@
     "default": "fr",
     "englishPrefix": "/en/",
     "content": "src/translations.en.mjs",
+    "regionalContent": "src/regions.mjs",
+    "metadataContent": "src/page-copy.mjs",
     "runtime": "src/i18n.mjs"
   },
   "constraints": [
     "No automatic contact submission or persistent visitor data",
     "Illustrative images must not be represented as company projects",
     "Preserve official brand assets",
-    "Production origin is supplied through SITE_URL; never invent a deployment URL"
+    "Production origin is supplied through SITE_URL; never invent a deployment URL",
+    "Public indexing requires SITE_INDEXABLE=1 and an HTTPS SITE_URL",
+    "Business facts are in src/business.mjs: one Gex base, France and Switzerland including Veyrier"
   ]
 }
