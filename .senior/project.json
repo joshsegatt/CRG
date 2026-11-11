@@ -1,0 +1,19 @@
+{
+  "stack": "Static HTML, native CSS, ES modules, Node.js >=22",
+  "packageManager": "npm",
+  "repository": "https://github.com/joshsegatt/CRG",
+  "localUrl": "http://127.0.0.1:4173/",
+  "checks": ["npm run lint", "npm test", "npm run build", "npm run check"],
+  "localization": {
+    "default": "fr",
+    "englishPrefix": "/en/",
+    "content": "src/translations.en.mjs",
+    "runtime": "src/i18n.mjs"
+  },
+  "constraints": [
+    "No automatic contact submission or persistent visitor data",
+    "Illustrative images must not be represented as company projects",
+    "Preserve official brand assets",
+    "Production origin is supplied through SITE_URL; never invent a deployment URL"
+  ]
+}
