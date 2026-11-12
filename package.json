@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
-    "lint": "node --check build.mjs && node --check src/app.mjs && node --check src/brief.mjs && node --check src/i18n.mjs && node --check src/localize.mjs && node --check src/translations.en.mjs && node --check server.mjs",
+    "lint": "node scripts/lint.mjs",
     "test": "node --test tests/*.test.mjs",
     "build": "node build.mjs",
     "check": "node scripts/check.mjs"

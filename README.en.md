@@ -25,7 +25,7 @@ The project brief works **on the visitor’s device**. Form fields are not sent 
 
 ## One identity, two languages
 
-**18 static pages: nine in French and nine in English.** Each language includes the home page, three service pages, company information, contact, legal information, privacy and visual credits.
+**30 static pages: fifteen in French and fifteen in English.** Each language includes the home page, three trades, interior renovation, a service-area hub, three regional pages (Pays de Gex, the French Geneva border area, Geneva and Veyrier), a preparation guide, company information, contact and practical information.
 
 French is the default language. English pages have their own URLs and localized metadata. `hreflang` links and canonical URLs are generated when the public origin is configured. Switching language is an explicit navigation action and does not use a language-preference cookie.
 
@@ -104,14 +104,22 @@ Follow these commands with desktop and mobile checks: FR / EN navigation, menu, 
 This version is a presentation and review foundation. Before the official launch:
 
 1. Complete and approve the publication contact, business email and hosting-provider details in the legal information.
-2. Set `SITE_URL` to the chosen domain’s origin, then run `npm run build` to regenerate metadata, language links and the sitemap.
-3. Review `robots.txt`: the presentation version deliberately blocks indexing.
+2. Set `SITE_URL` to the chosen HTTPS origin and `SITE_INDEXABLE=1`, then run `npm run build` to regenerate metadata, language links and the sitemap.
+3. Review robots metadata: previews use `noindex, follow` until indexing is explicitly enabled. `robots.txt` allows crawling so engines can read that instruction. Legal, privacy and visual-credit pages stay out of the index and sitemap.
 4. Verify services, contact details and enquiry handling with the company.
 5. If email delivery or lead collection is added, implement the actual processing and update the privacy information.
 
 `SITE_URL` accepts an HTTP or HTTPS origin without a path, query parameters or fragment. Without it, the build keeps links suitable for local previews and does not invent a public domain for metadata or the sitemap.
 
 The `dist/` directory can be served by a static host at the root of the chosen domain. The GitHub repository preserves the source; its existence alone does not mean the website is deployed.
+
+## Local search and Google Business Profile
+
+The primary phone is **06 11 49 91 53**. The business is based in Gex and serves France and Switzerland, including Geneva and Veyrier. Regional pages provide relevant preparation advice without inventing local offices.
+
+Titles, descriptions, canonical links, FR/EN alternatives and structured data are generated together. The schema describes one business in Gex and its service areas, with no invented ratings or reviews. The public sitemap includes twenty-four useful URLs.
+
+The French [Google Business Profile kit](docs/GOOGLE-BUSINESS.md) and [SEO launch steps](docs/SEO-LAUNCH.md) contain practical next steps. Search positions are not guaranteed.
 
 ## Assets and rights
 

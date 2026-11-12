@@ -25,7 +25,7 @@ Le parcours de contact fonctionne **sur l’appareil du visiteur**. Les champs n
 
 ## Une identité, deux langues
 
-**18 pages statiques : neuf en français, neuf en anglais.** Chaque version réunit l’accueil, les trois savoir-faire, l’entreprise, le contact, les informations légales, la confidentialité et les crédits visuels.
+**30 pages statiques : quinze en français, quinze en anglais.** Chaque version réunit l’accueil, les trois métiers, la rénovation intérieure, les secteurs d’intervention, trois pages régionales (Pays de Gex, Genevois français, Genève et Veyrier), un guide de préparation, l’entreprise, le contact et les informations pratiques.
 
 Le français est la langue par défaut. Les pages anglaises disposent de leur propre URL et de métadonnées adaptées. Les liens `hreflang` et les URL canoniques sont produits lorsque l’origine publique est configurée. Le changement de langue est une navigation explicite, sans cookie de préférence linguistique.
 
@@ -93,7 +93,7 @@ npm run check
 ```
 
 - `lint` vérifie la **syntaxe JavaScript** ; il ne remplace pas une analyse ESLint.
-- `test` exécute les tests de validation et de génération des résumés.
+- `test` vérifie le formulaire, le SMS, la localisation, les animations réduites et un build public isolé des trente pages.
 - `build` génère les pages, les ressources communes et les fichiers destinés aux moteurs de recherche.
 - `check` contrôle les pages générées, les liens et ressources internes, les textes alternatifs et les identifiants HTML.
 
@@ -104,14 +104,22 @@ Compléter ces commandes par une vérification sur ordinateur et mobile : naviga
 Cette version constitue une base de présentation et de validation. Avant le lancement officiel :
 
 1. Compléter et valider le responsable de publication, l’e-mail professionnel et les coordonnées de l’hébergeur dans les informations légales.
-2. Définir `SITE_URL` avec l’origine du domaine retenu, puis lancer `npm run build` pour régénérer les métadonnées, les liens de langue et le sitemap.
-3. Examiner `robots.txt` : la version de présentation bloque volontairement l’indexation.
+2. Définir `SITE_URL` avec l’origine HTTPS du domaine retenu et `SITE_INDEXABLE=1`, puis lancer `npm run build` pour régénérer les métadonnées, les liens de langue et le sitemap.
+3. Contrôler les balises robots : sans activation explicite, les pages restent en `noindex, follow`. `robots.txt` autorise leur lecture pour que les moteurs voient cette consigne. Les pages légales, de confidentialité et de crédits restent hors index et hors sitemap.
 4. Vérifier les prestations, les coordonnées et l’organisation des demandes avec l’entreprise.
 5. Si un envoi par e-mail ou une collecte de contacts est ajouté, implémenter son traitement réel et actualiser l’information de confidentialité.
 
 `SITE_URL` accepte une origine HTTP ou HTTPS, sans chemin, paramètres ni fragment. Sans cette variable, la compilation conserve des liens adaptés à la prévisualisation locale, sans inventer de domaine public pour les métadonnées et le sitemap.
 
 Le dossier `dist/` peut être servi par un hébergement statique à la racine du domaine retenu. Le dépôt GitHub conserve les sources ; il ne signifie pas, à lui seul, que le site est déployé.
+
+## Référencement local et fiche Google
+
+Le téléphone principal est **06 11 49 91 53**. L’entreprise est implantée à Gex et intervient en France et en Suisse, notamment à Genève et Veyrier. Les pages régionales apportent des informations de préparation propres aux secteurs, sans créer d’agences fictives.
+
+Les titres, descriptions, liens canoniques, alternances FR/EN et données structurées sont générés ensemble. Le schéma décrit une seule entreprise à Gex et ses zones desservies ; il ne contient ni notes ni avis inventés. Le sitemap public contient vingt-quatre URL utiles.
+
+Consulter le [kit de la fiche Google](docs/GOOGLE-BUSINESS.md) et les [étapes du lancement SEO](docs/SEO-LAUNCH.md). Le classement Google dépend également de la distance, de la pertinence et de la notoriété : aucune position n’est garantie.
 
 ## Ressources et droits
 

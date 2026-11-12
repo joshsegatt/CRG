@@ -1,5 +1,6 @@
 import { validateStep, createSummary, createSmsLink } from "./brief.mjs";
 import { getMessages } from "./i18n.mjs";
+import { acknowledgePanel as animatePanel } from "./motion.mjs";
 
 const locale = document.documentElement.lang === "en" ? "en" : "fr";
 const text = getMessages(locale);
@@ -13,16 +14,30 @@ document.querySelectorAll("a[data-language]").forEach((link) => {
 
 const menu = document.querySelector("#main-nav");
 const menuButton = document.querySelector("#menu-toggle");
+const desktopLayout = window.matchMedia("(min-width: 901px)");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function setMenuState(open) {
+  menuButton?.setAttribute("aria-expanded", String(open));
+  menu?.classList.toggle("is-open", open);
+  if (menu) {
+    menu.inert = !desktopLayout.matches && !open;
+    if (menu.inert) menu.setAttribute("aria-hidden", "true");
+    else menu.removeAttribute("aria-hidden");
+  }
+}
+
+function acknowledgePanel(panel) {
+  animatePanel(panel, reducedMotion.matches);
+}
 
 function closeMenu() {
-  menuButton?.setAttribute("aria-expanded", "false");
-  menu?.classList.remove("is-open");
+  setMenuState(false);
 }
 
 menuButton?.addEventListener("click", () => {
   const open = menuButton.getAttribute("aria-expanded") !== "true";
-  menuButton.setAttribute("aria-expanded", String(open));
-  menu?.classList.toggle("is-open", open);
+  setMenuState(open);
 });
 menu
   ?.querySelectorAll("a")
@@ -36,9 +51,8 @@ document.addEventListener("keydown", (event) => {
     menuButton.focus();
   }
 });
-window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
-  if (event.matches) closeMenu();
-});
+desktopLayout.addEventListener("change", closeMenu);
+closeMenu();
 
 const form = document.querySelector("#project-form");
 if (form instanceof HTMLFormElement) {
@@ -75,7 +89,10 @@ if (form instanceof HTMLFormElement) {
     next.hidden = step === 3;
     finish.hidden = step !== 3;
     status.textContent = "";
-    if (focus) panels[step - 1].querySelector("legend").focus();
+    if (focus) {
+      panels[step - 1].querySelector("legend").focus();
+      acknowledgePanel(panels[step - 1]);
+    }
   }
 
   function validateCurrent() {
@@ -118,6 +135,7 @@ if (form instanceof HTMLFormElement) {
     form.hidden = true;
     result.hidden = false;
     result.querySelector("h2").focus();
+    acknowledgePanel(result);
   });
   document.querySelector("#edit-brief").addEventListener("click", () => {
     result.hidden = true;
